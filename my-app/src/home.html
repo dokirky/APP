@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LearnIT</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.c5a00942.ico" />
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFt7CiAgICAic3JjIjogImFzc2V0cy9pbWdzL2xvZ28ucG5nIiwKICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICJ0eXBlIjogImltYWdlL3BuZyIKICB9XSwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMzFkNTNkIiwKICAidGhlbWVfY29sb3IiOiAiIzMxZDUzZCIKfQo=" />
+    
+    <meta name="theme-color" content="#31d53d" />
+    
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    
+      <nav class="navbar navbar-expand-lg bg-light navigatu">
+        <div class="container-fluid">
+          <div class="col-lg-3 col-md-3">
+            <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
+          </div>
+          <div class="col-lg-6 col-md-0">
+            <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="offcanvas offcanvas-end canvaoff" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="justify-content-end d-flex ins">
+              <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-sm-end justify-content-md-end">
+                <li class="nav-item col-lg-2 ">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <a class="nav-link" href="#">Site Administrator</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <a class="nav-link" href="index.html">Log-out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="container-fluid stage d-lg-none">
+        <div class="container-fluid">
+          <div class="tabbars tab-style1 container-fluid">
+            <ul class="flexs-center">
+              <li class="chat-message" data-where="group">
+                <a href="about.html">
+                  <span class="material-icons-outlined bub">
+                    error
+                  </span>
+                </a>
+                </li>
+              <li class="home active" data-where="home">
+                <a href="home.html">
+                  <span class="material-icons-outlined bub">
+                    home
+                </span>
+                </a>
+                </li>
+              <li class="user-profile" data-where="person bub">
+                <a href="profile.html">
+                  <span class="material-icons-outlined">
+                    account_circle
+                  </span>
+                </a>
+                </li>
+            </ul>
+          </div>
+          <div class="container-fluid under-icon">
+            <ul class="flexsi-center">
+              <li>About</li>
+              <li>Home</li>
+              <li>Profile</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+    
+<main>
+      <div class="container-fluid backs">
+        <div class="row">
+          <div class="container col-lg-3 d-none d-lg-block .d-xl-block firstrow bords">
+            <div class="mt-4 pb-2">
+              <div class="container barabi">
+                <div class="container insidecontent">
+                  <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto">
+                  <h2>Glomer P. Celestino</h2>
+                  <h4>Hello everyone! I am new here!</h4>
+                  <div class="d-flex">
+                    <h4 class="col-3">Friends</h4>
+                    <div class="col-2"></div>
+                    <h5 class="col-6">100</h5>
+                  </div>
+                  <div class="d-flex">
+                    <h4 class="col-3">Groups</h4>
+                    <div class="col-2"></div>
+                    <h5 class="col-6">12</h5>
+                  </div>
+
+                  <div class="container marge d-flex py-2">
+                    <a href="profile.html" class="">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        View Connections
+                      </button>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="container barabi text-start">
+                <div class="insidebarabi">
+                  <h5>Recent Activities</h5>
+                  <div class="grupo">
+                    <a href="chats.html" class="col-12 father">
+                      <button class="d-flex">
+                        <span class="material-icons-outlined">history</span><span class="mx-2">ITE-18 Learning</span>
+                      </button>
+                    </a>
+                    <a href="chats.html" class="col-7  father">
+                      <button class="d-flex">
+                        <span class="material-icons-outlined">history</span><span class="mx-2">ITE-18 HTML</span>
+                      </button>
+                    </a>
+                    <a href="chats.html" class="col-7  father">
+                      <button class="d-flex">
+                        <span class="material-icons-outlined">history</span><span class="mx-2">ITE-16 Foots-Crow</span>
+                      </button>
+                    </a>
+                    <a href="chats.html" class="col-7  father">
+                      <button class="d-flex">
+                        <span class="material-icons-outlined">history</span><span class="mx-2">Java RMI</span>
+                      </button>
+                    </a>
+                    <a href="chats.html" class="col-7  father">
+                      <button class="d-flex">
+                        <span class="material-icons-outlined">history</span><span class="mx-2">Post...</span>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          
+          <div class="container col-lg-5">
+            <div class="main-content mt-4 pb-2">
+              <div class="create-post">
+                <div class="create-post-input">
+                  <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                  <textarea rows="2" placeholder="Write a post..."></textarea>
+                </div>
+                <div class="container-fluid create-post-links">
+                  <li class="label">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="material-icons-outlined">label</span><span class="names">Label</span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Less Urgent</a></li>
+                    <li><a class="dropdown-item" href="#">Urgent</a></li>
+                    <li><a class="dropdown-item" href="#">Urgent, Important</a></li>
+                    <li><a class="dropdown-item" href="#">Important</a></li>
+                    <li><a class="dropdown-item" href="#">Less Important</a></li>
+                  </ul>
+                  </li>
+
+                  <li class="diverse">
+                  <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="material-icons-outlined">diversity_3</span><span class="names">Preferences</span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Group</a></li>
+                    <li><a class="dropdown-item" href="#">Homework</a></li>
+                    <li><a class="dropdown-item" href="#">Tutoring</a></li>
+                    <li><a class="dropdown-item" href="#">Custom</a></li>
+                  </ul>
+                  </li>
+
+                  <li class="post">
+                    <button class="btn btn-primary thirdss" type="button" data-bs-target="#offcanvasExample" aria-expanded="false">
+                    <span class="material-icons-outlined">data_exploration</span><span class="names">Post</span>
+                  </button>
+                  </li> 
+                </div>
+
+
+                <div class="refresher">
+                  <hr>
+                  <p>Refresh</p><a href=""><span class="material-icons-outlined">refresh</span></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="container-fluid barabi centermiddle">
+              <div class="container-fluid insidebarabi secondrow posting">
+                <div class="post-author">
+                  <a href="otherprofile.html">
+                    <button class="tofriend">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                    </button>
+                  </a>
+                  <div>
+                    <h1>Glomer Celestino</h1>
+                    <small>Homework</small>
+                    <small>Urgent and Important</small>
+                    <small>2 hours ago</small>
+                  </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+                </p>
+                <div class="text-end">
+                  <a href="post.html">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                      Interact to post...
+                    </button>
+                  </a>
+                </div>
+              </div>
+
+              <div class="container-fluid insidebarabi secondrow posting">
+                <div class="post-author">
+                  <a href="friendsprofile.html">
+                    <button class="tofriend">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                    </button>
+                  </a>
+                  <div>
+                    <h1>Mark Jamisola</h1>
+                    <small>Tutoring</small>
+                    <small>Important</small>
+                    <small>5 hours ago</small>
+                  </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+                </p>
+                <div class="text-end">
+                  <a href="post.html">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                      Interact to post...
+                    </button>
+                  </a>
+                </div>
+              </div>
+
+              <div class="container-fluid insidebarabi secondrow posting">
+                <div class="post-author">
+                  <a href="friendsprofile.html">
+                    <button class="tofriend">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                    </button>
+                  </a>
+                  <div>
+                    <h1>Melvin Jipos</h1>
+                    <small>Group</small>
+                    <small>Urgent and Important</small>
+                    <small>2 hours ago</small>
+                  </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+                </p>
+                <div class="text-end">
+                  <a href="post.html">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                      Interact to post...
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+
+          <div class="container col-lg-3 	d-none d-lg-block d-xl-block bords">
+              <div class=" mt-4 pb-2">
+                <div class="container barabi">
+                  <div class="container insidebarabi thirdrow">
+                      <h5>Most Interacted Post</h5>
+                      <div class="grupo">
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">Help RMI</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">ITE-18 HTML</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">ITE-16 Buddies</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">Java Tutor</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">New User Post</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">Help RMI</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">ITE-18 HTML</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">ITE-16 Buddies</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">Java Tutor</span>
+                          </button>
+                        </a>
+                        <a href="post.html" class="col-7  father">
+                          <button class="d-flex">
+                            <span class="material-icons-outlined">layers</span><span class="mx-2">New User Post</span>
+                          </button>
+                        </a>
+                      </div>
+                  </div>
+                </div>
+                <div class="container barabi text-start">
+                  <div class="insidebarabi">
+                    <h5>Announcements</h5>
+                    <div class="grupo d-flex">
+                      <span class="material-icons-outlined">
+                        error
+                      </span>
+                      <span>This app is still beta and will still be updating everytime. Thank you for using our app! Have a nice day ahead! :></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="insidebarabi babam">
+                  <h5>People</h5>
+                  <div class="d-flex">
+                    <div class="col-8 col-lg-9 mt-1">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+                      <small class="nameko">Glomer Celestino</small>
+                    </div>
+                    <div class="mt-2"> 
+                      <a href="otherprofile.html">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                          View
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="col-8 mt-1 col-lg-9">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+                      <small class="nameko">Melvin Jipos</small>
+                    </div>
+                    <div class="mt-2"> 
+                      <a href="otherprofile.html">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                          View
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="col-8 mt-1 col-lg-9">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+                      <small class="nameko">Donald Cuenca</small>
+                    </div>
+                    <div class="mt-2"> 
+                      <a href="otherprofile.html">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                          View
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="col-8 mt-1 col-lg-9">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+                      <small class="nameko">Mark Jamisola</small>
+                    </div>
+                    <div class="mt-2"> 
+                      <a href="otherprofile.html">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                          View
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="d-none d-lg-block d-xl-block">
+      <h1 class="branding">LearnIT</h1>
+      <p>© Copyright 2024</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LearnIT</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.c5a00942.ico" />
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFt7CiAgICAic3JjIjogImFzc2V0cy9pbWdzL2xvZ28ucG5nIiwKICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICJ0eXBlIjogImltYWdlL3BuZyIKICB9XSwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMzFkNTNkIiwKICAidGhlbWVfY29sb3IiOiAiIzMxZDUzZCIKfQo=" />
+    
+    <meta name="theme-color" content="#31d53d" />
+    
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg bg-light navigatu">
+        <div class="container-fluid">
+          <div class="col-lg-3 col-md-3">
+            <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
+          </div>
+          <div class="col-lg-6 col-md-0">
+            <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="offcanvas offcanvas-end canvaoff" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="justify-content-end d-flex ins">
+              <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-sm-end justify-content-md-end">
+                  <li class="nav-item col-lg-2 ">
+                    <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                    <a class="nav-link" href="home.html">Home</a>
+                  </li>
+                  <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                  </li>
+                  <li class="nav-item col-lg-6">
+                    <a class="nav-link" href="#">Site Administrator</a>
+                  </li>
+                  <li class="nav-item col-lg-6">
+                    <a class="nav-link" href="index.html">Log-out</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="container-fluid stage d-lg-none">
+        <div class="container-fluid">
+          <div class="tabbars tab-style1 container-fluid">
+            <ul class="flexs-center">
+              <li class="chat-message" data-where="group">
+                <a href="about.html">
+                  <span class="material-icons-outlined bub">
+                    error
+                  </span>
+                </a>
+                </li>
+              <li class="home" data-where="home">
+                <a href="home.html">
+                  <span class="material-icons-outlined bub">
+                    home
+                </span>
+                </a>
+                </li>
+              <li class="user-profile active" data-where="person bub">
+                <a href="profile.html">
+                  <span class="material-icons-outlined">
+                    account_circle
+                  </span>
+                </a>
+                </li>
+            </ul>
+          </div>
+          <div class="container-fluid under-icon">
+            <ul class="flexsi-center">
+              <li>About</li>
+              <li>Home</li>
+              <li>Profile</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+    
+    <main>
+      <div class="container d-lg-flex d-md-flex">
+        <div class="profile-main col-lg-10 col-md-12 col-sm-12">
+          <div class="profile-container">
+            <div class="container-fluid base"><h5 class="py-3 px-2">Preview</h5></div>
+            <div class="profile-inner">
+              <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="profpic">
+              <h1>Glomer P. Celestino</h1>
+              <small>I am new here! Hello!</small>
+              <small>October 25, 2000</small>
+              <small class="qual">Followers 10</small>
+              <a href=""><small>glomer.celestino@yahoo.com</small></a>
+            </div>
+            <div class="container-fluid sector">
+              <div class="descipt">
+                <h1>About</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum tenetur cum quia iste at eius accusantium distinctio earum quibusdam dolores illum incidunt sapiente, optio officiis cupiditate natus obcaecati commodi non?Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error vitae autem tempore laboriosam aperiam, eligendi, aspernatur accusantium, quasi ipsum hic aut quod amet incidunt quidem officiis atque iusto maxime.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container cutter"><hr class="col-lg-10"></div>
+      
+      <div class="container d-lg-flex d-md-flex editdesc">
+        <div class="profile-main col-lg-10 col-md-12 col-sm-12">
+          <div class="profile-container">
+            <div class="container-fluid base"><h5 class="py-3 px-2">Edit</h5></div>
+            <div class="profile-inner">
+              <div class="d-lg-flex d-md-flex">
+                <div>
+                  <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="profpic">
+                </div>
+                <div class="changepic pt-sm-3 px-sm-3 px-3">
+                  <p>Change Profile Picture</p>
+                  <input type="file" class="custom-file-input" id="inputGroupFile01">
+                </div>
+              </div>
+              <h3 class="pt-sm-5 pt-3">Name</h3>
+              <div class="d-flex">
+                <input type="text" placeholder="First Name" class="editnow">
+              </div>
+              <div class="d-flex">
+                <input type="text" placeholder="Last Name" class="editnow">
+              </div>
+              <h3>Bio</h3>
+              <div class="d-flex">
+                <textarea placeholder="Say something about yourself..." class="editnow biooo"></textarea>
+              </div>
+              <h3>Contact Info</h3>
+              <div class="d-flex pb-3">
+                <input type="text" placeholder="Email Address" class="editnow email">
+              </div>
+            </div>
+            <div class="container-fluid sector">
+              <div class="descipt">
+                <h1 class="px-lg-3">About</h1>
+                <div class="d-flex ">
+                  <textarea placeholder="Tell something you want to share..." class="editnow aboutchange mx-4"></textarea>
+                </div>
+                <div class="d-flex">
+                  <div class="col-sm-3 mt-3 mb-4 col-lg-2 px-2 px-lg-4 px-md-2">
+                    <a href="profile.html">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Save
+                      </button>
+                    </a>
+                  </div>
+                  <div class="col-sm-3 mt-3 mb-4 col-lg-2 px-4 px-lg-1 px-md-1">
+                    <a href="profile.html">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Discard
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+      <footer class="d-none d-lg-block d-xl-block">
+      <h1 class="branding">LearnIT</h1>
+      <p>© Copyright 2024</p>
+    </footer>
+  </body>
+</html>
