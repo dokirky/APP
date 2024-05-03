@@ -17,6 +17,7 @@
     "@capacitor/core": "latest",
     "@capacitor/splash-screen": "latest",
     "@popperjs/core": "^2.11.8",
+    "@supabase/supabase-js": "^2.43.0",
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
