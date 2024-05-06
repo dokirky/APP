@@ -28,15 +28,7 @@
     <script type="module" src="./js/main.js"></script>
   </head>
   <body>
-    <style>
-      .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-      }
-    </style>
-      <nav class="navbar navbar-expand-lg bg-light navigatu">
+      <nav class="fixed-top navbar navbar-expand-lg bg-light navigatu">
         <div class="container-fluid">
           <div class="col-lg-3 col-md-3">
             <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
@@ -62,10 +54,10 @@
                   <a class="nav-link" href="profile.html">Profile</a>
                 </li>
                 <li class="nav-item col-lg-6">
-                  <a class="nav-link" href="#">Site Administrator</a>
+                  <a class="nav-link" href="siteadmin.html">Site Administrator</a>
                 </li>
                 <li class="nav-item col-lg-6">
-                  <a class="nav-link" href="index.html">Log-out</a>
+                  <button type="button" id="btn_logout" class="btn btn-primary">Log-out</button>
                 </li>
               </ul>
             </div>
@@ -113,7 +105,7 @@
     
     <main>
 
-      <div class="container col-lg-8 pt-3 postcomment">
+      <div class="container col-lg-8 pt-3 postcomment pt-5 mt-5">
         <div class="container insidebarabi secondrow posting wowow">
           <div class="post-author">
             <a href="friendsprofile.html">
@@ -126,11 +118,14 @@
               <small>Homework, Group</small>
               <small>Urgent and Important</small>
               <small>2 hours ago</small>
+              <div class="d-flex">
+                <small>Post ID : </small><small class="postidnum">103</small>
+              </div>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+              </p>
             </div>
           </div>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
-          </p>
           <hr>
         </div>
         <div class="container comsection">
@@ -180,7 +175,7 @@
           <div class="comment-post-input">
             <img src="/assets/imgs/icooon.b1acba16.png" alt="">
             <textarea class="commentbutt" rows="2" placeholder="Say something to post..."></textarea>
-            <button class="bg-primary rounded"><span class="material-icons-outlined text-white">send</span></button>
+            <button class="bg-primary rounded"><span class="material-icons-outlined text-white sendcomment">send</span></button>
           </div>
         </div>
       </div>
@@ -188,9 +183,9 @@
     </main>
 
     
-    <footer class="d-none d-lg-block d-xl-block">
-      <h1 class="branding">LearnIT</h1>
-      <p>© Copyright 2024</p>
-    </footer>
+    <div class="footerstyle d-none d-lg-block d-xl-block ">
+      <h4 class="branding">LearnIT</h4>
+      <small>© Copyright 2024</small>
+    </div>
   </body>
 </html>
