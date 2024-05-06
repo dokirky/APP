@@ -88,6 +88,9 @@ main{
   padding-left: 15px;
   padding-right: 15px;
 }
+.create-post{
+  margin-top: 35px;
+}
 .create-post-links button{
   align-items: center;
   justify-content: center;
@@ -131,12 +134,54 @@ span.names{
   padding: 20px 25px 5px;
   margin: 5px 0 15px;
 }
+.navbar-expand-lg{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.I{
+  color: rgb(176, 6, 6);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.UaI{
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+  .LI{
+  color: yellowgreen;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.U{
+  color: orange;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* To ensure the navbar stays on top of other elements */
+}
+.LU{
+  color: green;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
 
 .post-author{
   display: flex;
@@ -153,6 +198,7 @@ span.names{
   font-weight: 600;
   color: #333;
   margin-top: 10px;
+  margin-bottom: -5px;
 }
 .tofriend{
   background: none;
@@ -184,6 +230,7 @@ font-size: 15px;
 .insidebarabi{
   background-color: white;
   padding: 10px;
+  border-radius: 10px; 
 }
 .barabi{
   background-color: #c0d8ec;
@@ -196,6 +243,7 @@ font-size: 15px;
 .backs{
   background-color: #c0d8ec;
   border-bottom: none;
+  margin-top: 50px;
 }
 .contact p{
   text-align: center;
@@ -219,6 +267,41 @@ font-size: 15px;
 .sizelogo{
   margin-right: 2px;
   margin-left: -5px;
+}
+.statisticsadmin h3{
+  margin-top: -40px;
+  font-size: 20px;
+}
+.delbutton .material-icons-outlined{
+  font-size: 18px;
+  padding: -8px;
+  padding-top: 2px;
+}
+.postcharacters{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.announcementedit{
+  margin-top: 8px;
+}
+.editbutann button{
+  margin-right: 10px;
+}
+.announcementedit h2{
+  margin-top: -30px;
+}
+.announcementedit hr{
+  width: 98%;
+  margin-left: 15px;
+  margin-top: -2px;
+}
+.usersss{
+  margin-bottom: 100px;
+}
+.usersss img{
+  width: 40px;
+  height: 40px;
 }
 .prime{
   background-color: var(--accent-color);
@@ -246,7 +329,7 @@ font-size: 15px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .about-background {
-    position: absolute;
+    position: absolute;   
     top: 0;
     left: 0;
     width: 100%;
@@ -256,6 +339,7 @@ font-size: 15px;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    padding-top: 70px;
 }
 .about-background::-webkit-scrollbar {
   display: none;
@@ -290,7 +374,10 @@ font-size: 15px;
   text-align: start;
   color: white;
   font-weight: 600;
+  padding-top: 100px;
+  text-align: justify;
 }
+
 .close-button {
   position: absolute;
   top: 10px;
@@ -401,6 +488,7 @@ font-size: 15px;
   border:solid rgb(255, 107, 53);
 }
 .create-account{
+  margin-top: 20px;
   padding-bottom: 20px;
 }
 .create-account p{
@@ -493,6 +581,20 @@ div.canvaoff{
 .navigatu{
   height: 70px;
 }
+.postidnum{
+  opacity: .65;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* To ensure the navbar stays on top of other elements */
+}
+.branding{
+  color: var(--accent-color);
+  font-weight: 800;
+}
 a.branding{
   font-weight: 800;
   color: var(--accent-color);
@@ -500,6 +602,10 @@ a.branding{
 .profile-main{
   flex-basis: 73%;
   margin-bottom: 150px;
+}
+
+.profile-container{
+  padding-top: 70px;
 }
 .base{
   height: 300px;
@@ -520,6 +626,7 @@ a.branding{
   margin-top: 100px;
   background-color: white;
   padding: 0 4% 10px;
+  padding-top: 70px;
 }
 .sector{
   background-color: white;
@@ -755,6 +862,7 @@ footer h1{
   max-height: 0;
   overflow: hidden;
   animation: slideDown 5s ease forwards;
+
 }
 @keyframes slideDown {
   from {
@@ -768,6 +876,7 @@ footer h1{
   position: relative;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+
 }
 .comsection{
   background-color: white;
@@ -906,6 +1015,7 @@ input.editnow{
   height: 50px;
   border-radius: 50%;
 }
+
 .postcomment{
   margin-bottom: 50px;
 }
@@ -925,6 +1035,18 @@ input.editnow{
   align-items: flex-start;
   background: white;
 }
+.footerstyle {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: start;
+  z-index: 0;
+  background-color: var(--accent-color-fg);
+}
+
+.footerstyle small{
+  padding-left: 17px;
+}
 .comment-post-input img{
   width: 40px;
   border-radius: 50%;
@@ -941,10 +1063,23 @@ input.editnow{
   background: transparent;
   height: 32px;
   overflow-y: hidden;
+  padding-left: 5px;
+}
+.greetingsonadmin{
+  margin-top: 80px;
+}
+.greetingsonadmin h2{
+  margin-top: -30px;
 }
 .comment-post-input button{
   margin-top: 15px;
   margin-left: 5px;
+  border: none;
+  padding-bottom: 3px;
+}
+
+.comment-post-input .material-icons-outlined{
+  rotate: -37deg;
 }
 .info-chat{
   border: none;

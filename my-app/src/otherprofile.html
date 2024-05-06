@@ -36,42 +36,42 @@
         z-index: 1000;
       }
     </style>
-      <nav class="navbar navbar-expand-lg bg-light navigatu">
-        <div class="container-fluid">
-          <div class="col-lg-3 col-md-3">
-            <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
+     <nav class="fixed-top navbar navbar-expand-lg bg-light navigatu">
+      <div class="container-fluid">
+        <div class="col-lg-3 col-md-3">
+          <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
+        </div>
+        <div class="col-lg-6 col-md-0">
+          <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="offcanvas offcanvas-end canvaoff" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="col-lg-6 col-md-0">
-            <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-          <div class="offcanvas offcanvas-end canvaoff" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="justify-content-end d-flex ins">
-              <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-sm-end justify-content-md-end">
-                <li class="nav-item col-3 ">
-                  <a class="nav-link" href="about.html">About</a>
+          <div class="justify-content-end d-flex ins">
+            <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-sm-end justify-content-md-end">
+              <li class="nav-item col-lg-2 ">
+                <a class="nav-link" href="about.html">About</a>
               </li>
-              <li class="nav-item col-3 d-none d-lg-block d-xl-block">
+              <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
                 <a class="nav-link" href="home.html">Home</a>
-            </li>
-            <li class="nav-item col-3 d-none d-lg-block d-xl-block">
-              <a class="nav-link" href="profile.html">Profile</a>
-            </li>
+              </li>
+              <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                <a class="nav-link" href="profile.html">Profile</a>
+              </li>
               <li class="nav-item col-lg-6">
-                  <a class="nav-link" href="#">Site Administrator</a>
+                <a class="nav-link" href="siteadmin.html">Site Administrator</a>
               </li>
-              <li class="nav-item col-lg-7">
-                  <a class="nav-link" href="index.html">Log-out</a>
+              <li class="nav-item col-lg-6">
+                <button type="button" id="btn_logout" class="btn btn-primary">Log-out</button>
               </li>
-              </ul>
-            </div>
+            </ul>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
       <nav class="container-fluid stage d-lg-none">
         <div class="container-fluid">
@@ -269,9 +269,9 @@
       </div>
       
     </main>
-      <footer class="d-none d-lg-block          d-xl-block">
-      <h1 class="branding">LearnIT</h1>
-      <p>© Copyright 2024</p>
-    </footer>
+    <div class="footerstyle d-none d-lg-block d-xl-block ">
+      <h4 class="branding">LearnIT</h4>
+      <small>© Copyright 2024</small>
+    </div>
   </body>
 </html>

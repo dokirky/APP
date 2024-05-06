@@ -28,8 +28,8 @@
     <script type="module" src="./js/main.js"></script>
   </head>
   <body>
-    
-      <nav class="navbar navbar-expand-lg bg-light navigatu">
+   
+      <nav class="fixed-top navbar navbar-expand-lg bg-light navigatu">
         <div class="container-fluid">
           <div class="col-lg-3 col-md-3">
             <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
@@ -55,7 +55,7 @@
                   <a class="nav-link" href="profile.html">Profile</a>
                 </li>
                 <li class="nav-item col-lg-6">
-                  <a class="nav-link" href="#">Site Administrator</a>
+                  <a class="nav-link" href="siteadmin.html">Site Administrator</a>
                 </li>
                 <li class="nav-item col-lg-6">
                   <button type="button" id="btn_logout" class="btn btn-primary">Log-out</button>
@@ -187,7 +187,7 @@
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Less Urgent</a></li>
                     <li><a class="dropdown-item" href="#">Urgent</a></li>
-                    <li><a class="dropdown-item" href="#">Urgent, Important</a></li>
+                    <li><a class="dropdown-item" href="#">Urgent and Important</a></li>
                     <li><a class="dropdown-item" href="#">Important</a></li>
                     <li><a class="dropdown-item" href="#">Less Important</a></li>
                   </ul>
@@ -231,19 +231,89 @@
                   <div>
                     <h1>Glomer Celestino</h1>
                     <small>Homework</small>
-                    <small>Urgent and Important</small>
+                    <p class="UaI">Urgent and Important</p>
                     <small>2 hours ago</small>
                   </div>
                 </div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
                 </p>
-                <div class="text-end">
-                  <a href="post.html">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                      Interact to post...
+                <div class="d-flex">
+                  <div class="col-3">
+                    <small>Post ID : </small><small class="postidnum">10</small>
+                  </div>
+                  <div class="col-3"></div>
+                  <div class="col-6 text-end">
+                    <a href="post.html">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Interact to post...
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid insidebarabi secondrow posting">
+                <div class="post-author">
+                  <a href="friendsprofile.html">
+                    <button class="tofriend">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="">
                     </button>
                   </a>
+                  <div>
+                    <h1>Jusalyn Gimao</h1>
+                    <small>Tutoring</small>
+                    <p class="I">Important</p>
+                    <small>5 hours ago</small>
+                  </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+                </p>
+                <div class="d-flex">
+                  <div class="col-3">
+                    <small>Post ID : </small><small class="postidnum">102</small>
+                  </div>
+                  <div class="col-3"></div>
+                  <div class="col-6 text-end">
+                    <a href="post.html">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Interact to post...
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid insidebarabi secondrow posting">
+                <div class="post-author">
+                  <a href="friendsprofile.html">
+                    <button class="tofriend">
+                      <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                    </button>
+                  </a>
+                  <div>
+                    <h1>Ian Chris Jabez</h1>
+                    <small>Tutoring</small>
+                    <p class="LI"> Less Important</p>
+                    <small>5 hours ago</small>
+                  </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+                </p>
+                <div class="d-flex">
+                  <div class="col-3">
+                    <small>Post ID : </small><small class="postidnum">103</small>
+                  </div>
+                  <div class="col-3"></div>
+                  <div class="col-6 text-end">
+                    <a href="post.html">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Interact to post...
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -257,19 +327,25 @@
                   <div>
                     <h1>Mark Jamisola</h1>
                     <small>Tutoring</small>
-                    <small>Important</small>
+                    <p class="U">Urgent</p>
                     <small>5 hours ago</small>
                   </div>
                 </div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
                 </p>
-                <div class="text-end">
-                  <a href="post.html">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                      Interact to post...
-                    </button>
-                  </a>
+                <div class="d-flex">
+                  <div class="col-3">
+                    <small>Post ID : </small><small class="postidnum">104</small>
+                  </div>
+                  <div class="col-3"></div>
+                  <div class="col-6 text-end">
+                    <a href="post.html">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Interact to post...
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -283,19 +359,25 @@
                   <div>
                     <h1>Melvin Jipos</h1>
                     <small>Group</small>
-                    <small>Urgent and Important</small>
+                    <p class="LU">Less Urgent</p>
                     <small>2 hours ago</small>
                   </div>
                 </div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
                 </p>
-                <div class="text-end">
-                  <a href="post.html">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                      Interact to post...
-                    </button>
-                  </a>
+                <div class="d-flex">
+                  <div class="col-3">
+                    <small>Post ID : </small><small class="postidnum">103</small>
+                  </div>
+                  <div class="col-3"></div>
+                  <div class="col-6 text-end">
+                    <a href="post.html">
+                      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Interact to post...
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div> 
@@ -433,9 +515,10 @@
         </div>
       </div>
     </main>
-    <footer class="d-none d-lg-block d-xl-block">
-      <h1 class="branding">LearnIT</h1>
-      <p>© Copyright 2024</p>
-    </footer>
+    
+    <div class="footerstyle d-none d-lg-block d-xl-block ">
+      <h4 class="branding">LearnIT</h4>
+      <small>© Copyright 2024</small>
+    </div>
   </body>
 </html>

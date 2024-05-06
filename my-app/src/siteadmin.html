@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LearnIT</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.c5a00942.ico" />
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFt7CiAgICAic3JjIjogImFzc2V0cy9pbWdzL2xvZ28ucG5nIiwKICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICJ0eXBlIjogImltYWdlL3BuZyIKICB9XSwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMzFkNTNkIiwKICAidGhlbWVfY29sb3IiOiAiIzMxZDUzZCIKfQo=" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="theme-color" content="#31d53d" />
+    
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    <nav class="fixed-top navbar navbar-expand-lg bg-light navigatu">
+        <div class="container-fluid">
+          <div class="col-lg-3 col-md-3">
+            <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
+          </div>
+          <div class="col-lg-6 col-md-0">
+            <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="offcanvas offcanvas-end canvaoff" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="justify-content-end d-flex ins">
+              <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-sm-end justify-content-md-end">
+                <li class="nav-item col-lg-2 ">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <a class="nav-link" href="siteadmin.html">Site Administrator</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <button type="button" id="btn_logout" class="btn btn-primary">Log-out</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+      <nav class="container-fluid stage d-lg-none">
+        <div class="container-fluid">
+          <div class="tabbars tab-style1 container-fluid">
+            <ul class="flexs-center">
+              <li class="chat-message" data-where="group">
+                <a href="about.html">
+                  <span class="material-icons-outlined bub">
+                    error
+                  </span>
+                </a>
+                </li>
+              <li class="home active" data-where="home">
+                <a href="home.html">
+                  <span class="material-icons-outlined bub">
+                    home
+                </span>
+                </a>
+                </li>
+              <li class="user-profile" data-where="person bub">
+                <a href="profile.html">
+                  <span class="material-icons-outlined">
+                    account_circle
+                  </span>
+                </a>
+                </li>
+            </ul>
+          </div>
+          <div class="container-fluid under-icon">
+            <ul class="flexsi-center">
+              <li>About</li>
+              <li>Home</li>
+              <li>Profile</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <main>
+        <div class="container-fluid insidecontent greetingsonadmin">
+            <div class="d-lg-flex">
+                <div>
+                    <h2>Hello There, Glomer Celestino!</h2>
+                    <h4>Here's what happened today!</h4>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="d-lg-flex">
+                    <div class="col-12"></div>
+                    <div class="d-flex col-6">
+                        <div class="col-lg-6"></div>
+                        <h4 class="col-8">Total Posts</h4>
+                        <h5 class="col-2">100</h5>
+                    </div>
+                    <div class="d-flex col-6">
+                        <div class="col-lg-6"></div>
+                        <h4 class="col-8">Total Users</h4>
+                        <h5 class="col-2">100</h5>
+                    </div>
+                    <div class="d-flex col-6">
+                        <div class="col-lg-6"></div>
+                        <h4 class="col-8">New Users</h4>
+                        <h5 class="col-2">100</h5>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="container-fluid insidecontent announcementedit">
+            <div>
+                <h2>Announcement</h2>
+            </div>
+            <hr>
+            <div class="mx-3">
+                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente sunt nihil vitae inventore, reiciendis sint minus est dolores quisquam expedita tempora repellat. Voluptatibus laboriosam earum recusandae aliquam, dolores maxime voluptates!</small>
+            </div>
+            <div class="text-end mb-3 editbutann">
+                <a href="">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                      <small>Edit</small>
+                    </button>
+                </a>
+            </div>
+          </div>
+
+          <div class="d-lg-flex mt-2 statisticsadmin">
+            <div class="col-lg-8">
+                <div class="container insidecontent">
+                    <h3>Posts</h3>
+                    <hr>
+                    <div class="mt-2 d-flex">
+                        <div class="d-flex col-3 mt-1">
+                            <p>Post ID : </p><p class="postidnum">103</p>
+                        </div>
+                        <p class="postcharacters mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi praesentium eum deleniti velit provident dolores, distinctio atque quos adipisci ex, tenetur asperiores qui inventore blanditiis deserunt animi fugit reiciendis odit.</p>
+                        <div class="col-lg-3"></div>
+                        <div class="d-flex">
+                            <div class="">
+                                <a href="post.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <div class="d-flex col-3 mt-1">
+                            <p>Post ID : </p><p class="postidnum">103</p>
+                        </div>
+                        <p class="postcharacters mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi praesentium eum deleniti velit provident dolores, distinctio atque quos adipisci ex, tenetur asperiores qui inventore blanditiis deserunt animi fugit reiciendis odit.</p>
+                        <div class="col-lg-3"></div>
+                        <div class="d-flex">
+                            <div class="">
+                                <a href="post.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <div class="d-flex col-3 mt-1">
+                            <p>Post ID : </p><p class="postidnum">103</p>
+                        </div>
+                        <p class="postcharacters mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi praesentium eum deleniti velit provident dolores, distinctio atque quos adipisci ex, tenetur asperiores qui inventore blanditiis deserunt animi fugit reiciendis odit.</p>
+                        <div class="col-lg-3"></div>
+                        <div class="d-flex">
+                            <div class="">
+                                <a href="post.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <div class="d-flex col-3 mt-1">
+                            <p>Post ID : </p><p class="postidnum">103</p>
+                        </div>
+                        <p class="postcharacters mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi praesentium eum deleniti velit provident dolores, distinctio atque quos adipisci ex, tenetur asperiores qui inventore blanditiis deserunt animi fugit reiciendis odit.</p>
+                        <div class="col-lg-3"></div>
+                        <div class="d-flex">
+                            <div class="">
+                                <a href="post.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2"></div>
+            <div class="col-lg-4 mx-lg-2 usersss">
+                <div class="container insidecontent">
+                    <h3>Users</h3>
+                    <hr>
+                        <div class="mt-2 d-flex">
+                        <div class="d-flex col-6">
+                            <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                            <p class="mt-1">Glomer Celestino</p>
+                        </div>
+                        <div class="col-2 mt-1">1001</div>
+                        <div class="d-flex mx-3">
+                            <div class="">
+                                <a href="otherprofile.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <div class="d-flex col-6">
+                            <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                            <p class="mt-1">Glomer Celestino</p>
+                        </div>
+                        <div class="col-2 mt-1">1001</div>
+                        <div class="d-flex mx-3">
+                            <div class="">
+                                <a href="otherprofile.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <div class="d-flex col-6">
+                            <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                            <p class="mt-1">Glomer Celestino</p>
+                        </div>
+                        <div class="col-2 mt-1">1001</div>
+                        <div class="d-flex mx-3">
+                            <div class="">
+                                <a href="otherprofile.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <div class="d-flex col-6">
+                            <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+                            <p class="mt-1">Glomer Celestino</p>
+                        </div>
+                        <div class="col-2 mt-1">1001</div>
+                        <div class="d-flex mx-3">
+                            <div class="">
+                                <a href="otherprofile.html">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <small>View</small>
+                                    </button>
+                                  </a>
+                            </div>
+                            <div class="mx-1"></div>
+                            <div class="delbutton">
+                                <a href="">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                      <div class="material-icons-outlined">
+                                        delete
+                                      </div>
+                                    </button>
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </main>
+    
+    <div class="footerstyle d-none d-lg-block d-xl-block ">
+        <h4 class="branding">LearnIT</h4>
+        <small>© Copyright 2024</small>
+    </div>
+  </body>
+</html>
