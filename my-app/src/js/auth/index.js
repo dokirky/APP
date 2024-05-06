@@ -6,7 +6,7 @@ login.onsubmit = async (e) => {
     e.preventDefault();
 
     document.querySelector("#login_form button").disabled = true;
-    document.querySelector("#login_form button").innerHTML = `<div class="spinner-border me-2" role="status"></div><span>Loading...</span>`;
+    document.querySelector("#login_form button").innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
 
   
     const formData = new FormData(login);
@@ -37,13 +37,22 @@ login.onsubmit = async (e) => {
             .select("*")
             .eq("user_id", localStorage.getItem("auth_id"));
 
-        localStorage.setItem("user_id", profiles[0].id);
-        console.log(profiles[0].id);
-
-        // Redirect to home page after successful login
-        window.location.pathname = '/home.html';
-
-        alert("Login Successfully", 10);
+       
+    if (session != null) {
+        const userRole = profiles[0].role;
+        const userId = user.id;
+  
+        console.log(userRole);
+        localStorage.setItem("role", userRole); //e butang lang ni sa variable para ma acces nimo sa lain HTML.
+        if (userRole === "admin") {
+          window.location.pathname = "/siteadmin.html"; //if admin ang role mo redirect sa siteadmin.html
+        } else if (userRole === "user") {
+          window.location.pathname = "/home.html"; //if user ang role mo redirect sa home.html
+        } else {
+         alert(`Error: ${error.message}`);
+          console.log(error);
+        }
+      }
     } else {
        alert("Error Please Try again or check your password");
         console.log(error);

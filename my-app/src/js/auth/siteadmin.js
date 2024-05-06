@@ -2,7 +2,6 @@ import {
     doLogout,
     supabase,
   } from "../main";
-
   //btn logout para sa loading2
   document.body.addEventListener("click", function (event) {
     if (event.target.id === "btn_logout") { 
@@ -25,3 +24,8 @@ import {
         });
     }
 });
+
+ 
+
+
+ 
