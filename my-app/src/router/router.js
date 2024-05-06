@@ -1,7 +1,8 @@
 function setRouter() {
   const path = window.location.pathname;
   const isLoggedIn = localStorage.getItem("access_token") !== null;
-  const userRole = localStorage.getItem("Role");
+  const userRole = localStorage.getItem("role");
+
 
   switch (path) {
   
@@ -21,20 +22,21 @@ function setRouter() {
     case "/profile.html":
     case "/home.html":
     
-      if (!isLoggedIn/*  || (userRole !== "user" && userRole !== "Admin") */) {
+      if (!isLoggedIn /* || userRole !== "admin" */) {
         window.location.pathname = "/index.html"; // redirect to home page if not logged in or not an owner/admin
       }
       break;
 
-   /*  case "/dashboard.html":
+    case "/siteadmin.html":
       // Add more cases if there are more pages
       if (!isLoggedIn) {
         window.location.pathname = "/index.html"; // default page when logged out
-      } else if (userRole !== "Owner" && userRole !== "Admin") {
+      } else if (userRole !== "admin") {
         // Redirect to home page if the user is not an owner or admin
         window.location.pathname = "/home.html";
       }
-      break; */
+      break;
+   
 
     default:
       break;
