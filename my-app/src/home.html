@@ -35,6 +35,7 @@
             <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
           </div>
           <div class="col-lg-6 col-md-0">
+            <a href="search.html"><button class="btn btn-outline-primary">Search</button></a>
             <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,9 +72,9 @@
           <div class="tabbars tab-style1 container-fluid">
             <ul class="flexs-center">
               <li class="chat-message" data-where="group">
-                <a href="about.html">
+                <a href="notification.html">
                   <span class="material-icons-outlined bub">
-                    error
+                    notifications
                   </span>
                 </a>
                 </li>
@@ -95,7 +96,7 @@
           </div>
           <div class="container-fluid under-icon">
             <ul class="flexsi-center">
-              <li>About</li>
+              <li>Notification</li>
               <li>Home</li>
               <li>Profile</li>
             </ul>
@@ -115,12 +116,12 @@
                   <h2>Glomer P. Celestino</h2>
                   <h4>Hello everyone! I am new here!</h4>
                   <div class="d-flex">
-                    <h4 class="col-3">Friends</h4>
+                    <h4 class="col-3">Followers</h4>
                     <div class="col-2"></div>
                     <h5 class="col-6">100</h5>
                   </div>
                   <div class="d-flex">
-                    <h4 class="col-3">Groups</h4>
+                    <h4 class="col-3">Following</h4>
                     <div class="col-2"></div>
                     <h5 class="col-6">12</h5>
                   </div>
@@ -128,7 +129,7 @@
                   <div class="container marge d-flex py-2">
                     <a href="profile.html" class="">
                       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                        View Connections
+                        View Profile
                       </button>
                     </a>
                   </div>
@@ -177,45 +178,45 @@
               <div class="create-post">
                 <div class="create-post-input">
                   <img src="/assets/imgs/icooon.b1acba16.png" alt="">
-                  <textarea rows="2" placeholder="Write a post..."></textarea>
+                  <textarea id="postContent" rows="2" placeholder="Write a post..."></textarea>
                 </div>
-                <div class="container-fluid create-post-links">
+                <div class="container-fluid create-post-links">          
                   <li class="label">
                     <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="material-icons-outlined">label</span><span class="names">Label</span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Less Urgent</a></li>
-                    <li><a class="dropdown-item" href="#">Urgent</a></li>
-                    <li><a class="dropdown-item" href="#">Urgent and Important</a></li>
-                    <li><a class="dropdown-item" href="#">Important</a></li>
-                    <li><a class="dropdown-item" href="#">Less Important</a></li>
-                  </ul>
+                      <span class="material-icons-outlined">label</span><span class="names">Label</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Less Urgent</a></li>
+                      <li><a class="dropdown-item" href="#">Urgent</a></li>
+                      <li><a class="dropdown-item" href="#">Urgent and Important</a></li>
+                      <li><a class="dropdown-item" href="#">Important</a></li>
+                      <li><a class="dropdown-item" href="#">Less Important</a></li>
+                    </ul>
                   </li>
-
+            
                   <li class="diverse">
-                  <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="material-icons-outlined">diversity_3</span><span class="names">Preferences</span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Group</a></li>
-                    <li><a class="dropdown-item" href="#">Homework</a></li>
-                    <li><a class="dropdown-item" href="#">Tutoring</a></li>
-                    <li><a class="dropdown-item" href="#">Custom</a></li>
-                  </ul>
+                    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="material-icons-outlined">diversity_3</span><span class="names">Preferences</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Group</a></li>
+                      <li><a class="dropdown-item" href="#">Homework</a></li>
+                      <li><a class="dropdown-item" href="#">Tutoring</a></li>
+                      <li><a class="dropdown-item" href="#">Custom</a></li>
+                    </ul>
                   </li>
-
+            
                   <li class="post">
-                    <button class="btn btn-primary thirdss" type="button" data-bs-target="#offcanvasExample" aria-expanded="false">
-                    <span class="material-icons-outlined">data_exploration</span><span class="names">Post</span>
-                  </button>
-                  </li> 
+                    <button class="btn btn-primary thirdss" type="button" id="postButton">
+                      <span class="material-icons-outlined">data_exploration</span><span class="names">Post</span>
+                    </button>
+                  </li>
                 </div>
-
-
+            
+            
                 <div class="refresher">
                   <hr>
-                  <p>Refresh</p><a href=""><span class="material-icons-outlined">refresh</span></a>
+                  <p>Refresh</p><a href="#"><span class="material-icons-outlined">refresh</span></a>
                 </div>
               </div>
             </div>
@@ -520,5 +521,37 @@
       <h4 class="branding">LearnIT</h4>
       <small>© Copyright 2024</small>
     </div>
+    <script type="module">
+      import { createPost } from './js/auth/post.js';
+    
+      document.getElementById("postButton").addEventListener("click", async (event) => {
+          event.preventDefault(); // Stops the page from refreshing
+    
+          try {
+              const postContent = document.getElementById("postContent").value;
+              // Collect other details, e.g., from dropdowns or other input fields
+              const label = document.querySelector('.label-dropdown').value;
+              const preference = document.querySelector('.preference-dropdown').value;
+              // Example for getting user_info, label, etc.
+    
+              const postDetails = {
+                  post: postContent,
+                  label: label,
+                  preference: preference,
+                  // Add other fields as required
+                  comment: '', // Set default or collect from UI
+                  user_info: 'currentUserId' // You'll likely need to get this from your authentication context
+              };
+    
+              const newPost = await createPost(postDetails);
+              console.log("New post created:", newPost);
+    
+              document.getElementById("postContent").value = '';
+          } catch (error) {
+              console.error("Error creating post:", error);
+          }
+      });
+    </script>
+    
   </body>
 </html>

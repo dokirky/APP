@@ -6,6 +6,7 @@ import { createClient } from '@supabase/supabase-js'
 
 import { setRouter } from '../router/router';
 
+
 setRouter();
 
 
@@ -30,3 +31,4 @@ async function doLogout() {
   }
 
   export {supabase,doLogout};
+ 
