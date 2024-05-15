@@ -40,8 +40,10 @@ login.onsubmit = async (e) => {
        
     if (session != null) {
         const userRole = profiles[0].role;
-        const userId = user.id;
-  
+        const userId = profiles[0].id;
+        localStorage.setItem('user_id', userId);
+
+
         console.log(userRole);
         localStorage.setItem("role", userRole); //e butang lang ni sa variable para ma acces nimo sa lain HTML.
         if (userRole === "admin") {

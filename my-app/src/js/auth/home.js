@@ -1,53 +1,189 @@
 // Import necessary functions
 import { doLogout, supabase } from "../main";
-import { createPost } from "./post"; // Assuming you have a separate post.js file
 
+const form_item = document.getElementById("post_form");
+const itemsImageUrl =
+  "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
+const userId = localStorage.getItem("user_id");
+
+console.log(userId);
 // Event listener for logging out
 document.body.addEventListener("click", function (event) {
-    if (event.target.id === "btn_logout") { 
-        // Logic for logging out
-        // Disable the button and show loading spinner
-        document.querySelector("#btn_logout").disabled = true;
-        document.querySelector("#btn_logout").innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
-        
-        doLogout().then(() => {
-            // Re-enable the button and change the text
-            document.querySelector("#btn_logout").disabled = false;
-            document.querySelector("#btn_logout").innerHTML = "Log-in";
-        }).catch((error) => {
-            console.error("Logout failed:", error);
-            // Handle logout error
-            document.querySelector("#btn_logout").disabled = false;
-            document.querySelector("#btn_logout").innerHTML = "Log-in";
-        });
-    }
-});
+  if (event.target.id === "btn_logout") {
+    // Logic for logging out
+    // Disable the button and show loading spinner
+    document.querySelector("#btn_logout").disabled = true;
+    document.querySelector(
+      "#btn_logout"
+    ).innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
 
-// Event listener for creating posts
-document.querySelector('.create-post .post button').addEventListener('click', async function() {
-    // Get the content of the post from the textarea
-    const postContent = document.querySelector('.create-post textarea').value;
-
-    // Call the function to create a post
-    try {
-        // Show loading spinner
-        document.querySelector('.create-post .post button').disabled = true;
-        document.querySelector('.create-post .post button').innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Posting...</span>`;
-        
-        await createPost(postContent);
-
-        // Reset textarea content
-        document.querySelector('.create-post textarea').value = "";
-
-        // Update UI or display success message
-        // For example, you can reload the page to show the new post
-        window.location.reload();
-    } catch (error) {
-        console.error("Error creating post:", error);
-        // Display error message or handle error gracefully
-    } finally {
+    doLogout()
+      .then(() => {
         // Re-enable the button and change the text
-        document.querySelector('.create-post .post button').disabled = false;
-        document.querySelector('.create-post .post button').innerHTML = "Post";
-    }
+        document.querySelector("#btn_logout").disabled = false;
+        document.querySelector("#btn_logout").innerHTML = "Log-in";
+      })
+      .catch((error) => {
+        console.error("Logout failed:", error);
+        // Handle logout error
+        document.querySelector("#btn_logout").disabled = false;
+        document.querySelector("#btn_logout").innerHTML = "Log-in";
+      });
+  }
 });
+
+getDatas();
+async function getDatas() {
+    let { data: posts, error } = await supabase
+      .from("posts")
+      .select("*,user_infos(*)");
+  
+    let container = "";
+  
+    posts.forEach((data) => {
+        const firstname = data.user_infos?.first_name || "Unknown";
+        const lastname = data.user_infos?.last_name || "Unknown";
+        const imageUser = data.user_infos?.image_path || "default_image_path.jpg";
+  
+      container += `
+         
+          <div class="container-fluid insidebarabi secondrow posting p-2">
+            <div class="post-author">
+              <a href="otherprofile.html">
+                <button class="tofriend" >
+                <div data-id="${imageUser}">
+                  <img class="block my-2 border border-dark border-2 rounded-circle" style="width: 100px; height: 100px;"  src="${
+                    itemsImageUrl + imageUser
+                  }" alt="">
+                </div>
+                </button>
+              </a>
+              <div class="ms-2">
+                <h1 >${firstname} ${lastname}</h1>
+                <small class="mt-3">${data.preferences}</small>
+                <p class="UaI">${data.label}</p>
+                <small>${data.created_at}</small>
+              </div>
+            </div>
+            <div class="card p-2 my-2" style="width: auto;">
+              <p class=" text-center card-text">${data.post}</p></div>
+            <div class="d-flex">
+              <div class="col-3">
+                <small>Post ID : </small><small class="postidnum">${
+                  data.id
+                }</small>
+              </div>
+              <div class="col-3"></div>
+              <div class="col-6 text-end">
+                
+                  <button id="btn_interact" class="btn btn-primary" type="button"  aria-controls="offcanvasExample">
+                    Interact
+                  </button>
+               
+              </div>
+            </div>
+          </div>
+  
+        
+       
+          `;
+    });
+  
+    document.getElementById("post_container").innerHTML = container;
+  }
+  
+
+//button catcher para maka add ug javaScript sa button
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "btn_interact") {
+    alert("Interact to post... but its under construction");
+  }
+});
+// document.body.addEventListener("click", function (event) {
+//     if (event.target.id === "post_btn") {
+//      alert("Interact to post... but its under construction");
+//     }
+//   });
+
+let for_update_id = "";
+form_item.onsubmit = async (e) => {
+  e.preventDefault();
+  document.querySelector("#post_form button[type='submit']").disabled = true;
+  document.querySelector("#post_form button[type='submit']").innerHTML = `
+                      <span>Loading...</span>`;
+
+  const formData = new FormData(form_item);
+  let image_path = formData.get("image_path");
+  let image_data = null;
+  if (!image_path) {
+    // Retrieve the last saved image path
+    // Assuming you have a variable holding the last saved image path
+    // Replace 'last_saved_image_path' with the variable holding the last saved image path
+  } else {
+    // Supabase Image Upload
+    const image = formData.get("image_path");
+    const { data, error } = await supabase.storage
+      .from("profilePic")
+      .upload("public/" + image.name, image, {
+        cacheControl: "3600",
+        upsert: true,
+      });
+    image_data = data;
+    if (error) {
+      alert(
+        "Something wrong happened. Cannot upload image, image size might be too big. You may update the item's image."
+      );
+      console.log(error);
+    }
+  }
+  if (for_update_id == "") {
+    const { data, error } = await supabase
+      .from("posts")
+      .insert([
+        {
+          label: formData.get("label"),
+          user_infos_id: userId,
+          post: formData.get("post"),
+          preferences: formData.get("preferences"),
+        },
+      ])
+      .select();
+
+    if (error) {
+      alert("Something wrong happened. Cannot add item.");
+      console.log(error);
+    } else {
+      alert("post Successfully Added!");
+      // Reload Datas
+      getDatas();
+      window.location.reload();
+    }
+  } else {
+    const { data, error } = await supabase
+      .from("profiles")
+      .update({
+        label: formData.get("label"),
+        image_path: image_data ? image_data.path : image_path,
+      })
+      .eq("id", for_update_id)
+      .select();
+
+    if (error == null) {
+      alert("post Successfully Added!");
+
+      // Reset storage id
+      for_update_id = "";
+      /* reload datas */
+      getDatas();
+    } else {
+      alert("Something wrong happened. Cannot add item.");
+      console.log(error);
+    }
+  }
+
+  form_item.reset();
+  document.querySelector("#post_form button[type='submit']").disabled = false;
+  document.querySelector(
+    "#post_form button[type='submit']"
+  ).innerHTML = `Submit`;
+};
