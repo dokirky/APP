@@ -17,6 +17,9 @@ export default defineConfig({
         post: resolve(__dirname, 'src/post.html'),
         profile: resolve(__dirname, 'src/profile.html'),
         signup: resolve(__dirname, 'src/signup.html'),
+        editcomment: resolve(__dirname, 'src/editcomment.html'),
+        editpost: resolve(__dirname, 'src/editpost.html'),
+        search: resolve(__dirname, 'src/search.html'),
       },
     }
   },

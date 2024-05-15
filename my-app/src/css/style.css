@@ -688,7 +688,7 @@ footer h1{
   left: 0;
   right: 0;
   z-index: 1;
-  margin-bottom: -35px;
+  margin-bottom: -40px;
 }
 .under-icon ul,
 .under-icon li {
@@ -741,8 +741,8 @@ footer h1{
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 999;
-  margin-bottom: 19px;
+  z-index: 2;
+  margin-bottom: 22px;
 }
 .tabbars ul,
 .tabbars li {
@@ -785,13 +785,28 @@ footer h1{
   width: 100vh;
 }
 .tabbars li:nth-child(2):not(.active){
-  margin-right: -5px;
+  margin-right: -2px;
 }
 .tab-style1 li:nth-child(1).active~li:nth-child(2):not(.active){
-  margin-right: 20px;
+  margin-left: 0px;
+}
+.tab-style1 li:nth-child(1):not(.active)~li:nth-child(2):not(.active){
+  margin-right: -15px;
+}
+.tab-style1 li:nth-child(2):not(.active)~li:nth-child(3).active~{
+  margin-left: -18px;
 }
 .tab-style1 li:nth-child(3).active{
   margin-right: -8px;
+}
+.tab-style1 li:nth-child(2).active{
+  margin-left: 20px;
+}
+.tab-style1 li:nth-child(1):not(.active){
+  margin-left: 10px;
+}
+.tab-style1 li:nth-child(3):not(.active)~li:nth-child(1):not(.active){
+  margin-right: -3px;
 }
 .tab-style1 ul {
   justify-content: space-around;

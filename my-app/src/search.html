@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LearnIT</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.c5a00942.ico" />
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFt7CiAgICAic3JjIjogImFzc2V0cy9pbWdzL2xvZ28ucG5nIiwKICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICJ0eXBlIjogImltYWdlL3BuZyIKICB9XSwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMzFkNTNkIiwKICAidGhlbWVfY29sb3IiOiAiIzMxZDUzZCIKfQo=" />
+    
+    <meta name="theme-color" content="#31d53d" />
+    <script type="module" src="./js/auth/home.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/main.js"></script>
+    <style>
+      .sticky-search-bar {
+          position: -webkit-sticky;
+          position: sticky;
+          top: 60px; /* Adjust based on the height of your existing navbar */
+          z-index: 1020; /* Make sure it's above other content but below the navbar */
+          background-color: #f8f9fa; /* Background color to match Bootstrap's default */
+          padding: 10px;
+      }
+  </style>
+  </head>
+  <body>
+   
+      <nav class="fixed-top navbar navbar-expand-lg bg-light navigatu">
+        <div class="container-fluid">
+          <div class="col-lg-3 col-md-3">
+            <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
+          </div>
+          <div class="col-lg-6 col-md-0">
+            <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="offcanvas offcanvas-end canvaoff" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="justify-content-end d-flex ins">
+              <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-sm-end justify-content-md-end">
+                <li class="nav-item col-lg-2 ">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <a class="nav-link" href="siteadmin.html">Site Administrator</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <button type="button" id="btn_logout" class="btn btn-primary">Log-out</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="container-fluid stage d-lg-none">
+        <div class="container-fluid">
+          <div class="tabbars tab-style1 container-fluid">
+            <ul class="flexs-center">
+              <li class="chat-message" data-where="group">
+                <a href="notification.html">
+                  <span class="material-icons-outlined bub">
+                    notifications
+                  </span>
+                </a>
+                </li>
+              <li class="home active" data-where="home">
+                <a href="home.html">
+                  <span class="material-icons-outlined bub">
+                    home
+                </span>
+                </a>
+                </li>
+              <li class="user-profile" data-where="person bub">
+                <a href="profile.html">
+                  <span class="material-icons-outlined">
+                    account_circle
+                  </span>
+                </a>
+                </li>
+            </ul>
+          </div>
+          <div class="container-fluid under-icon">
+            <ul class="flexsi-center">
+              <li>Notification</li>
+              <li>Home</li>
+              <li>Profile</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+    
+<main>
+  <div style="position: sticky; top: 64px; z-index: 1020; background-color: #f8f9fa;">
+    <div class="container py-2">
+        <div class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+            <!-- Dropdown Button -->
+            <div class="dropdown ms-2">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort by
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Title</a></li>
+                    <li><a class="dropdown-item" href="#">Post</a></li>
+                    <li><a class="dropdown-item" href="#">User</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid insidebarabi secondrow posting" style="margin-top: 75px;">
+  <div class="post-author">
+    <a href="otherprofile.html">
+      <button class="tofriend">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+      </button>
+    </a>
+    <div>
+      <h1>Glomer Celestino</h1>
+      <small>Homework</small>
+      <p class="UaI">Urgent and Important</p>
+      <small>2 hours ago</small>
+    </div>
+  </div>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+  </p>
+  <div class="d-flex">
+    <div class="col-3">
+      <small>Post ID : </small><small class="postidnum">10</small>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-6 text-end">
+      <a href="post.html">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          Interact to post...
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex insidebarabi">
+  <div class="col-8 col-lg-9 mt-1">
+    <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+    <span>Glomer Celestino</span>
+  </div>
+  <div class="mt-1 mx-5"> 
+    <a href="otherprofile.html">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        View
+      </button>
+    </a>
+  </div>
+</div>
+
+<div class="container-fluid insidebarabi secondrow posting" style="margin-bottom: 75px;margin-top: 10px;">
+  <div class="post-author">
+    <a href="otherprofile.html">
+      <button class="tofriend">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="">
+      </button>
+    </a>
+    <div>
+      <h1>Glomer Celestino</h1>
+      <small>Homework</small>
+      <p class="UaI">Urgent and Important</p>
+      <small>2 hours ago</small>
+    </div>
+  </div>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium vero, doloribus consectetur, eos recusandae animi blanditiis repellat amet ipsum necessitatibus, ducimus earum atque ab odio error voluptas iusto optio incidunt.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste, laudantium recusandae officia unde vitae animi reiciendis ad totam sint, quis maiores eveniet veniam dicta ullam aut deserunt cum quidem.
+  </p>
+  <div class="d-flex">
+    <div class="col-3">
+      <small>Post ID : </small><small class="postidnum">10</small>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-6 text-end">
+      <a href="post.html">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          Interact to post...
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+</main>
+    
+    <div class="footerstyle d-none d-lg-block d-xl-block ">
+      <h4 class="branding">LearnIT</h4>
+      <small>© Copyright 2024</small>
+    </div>
+    <script type="module">
+      import { createPost } from './js/auth/post.js';
+    
+      document.getElementById("postButton").addEventListener("click", async (event) => {
+          event.preventDefault(); // Stops the page from refreshing
+    
+          try {
+              const postContent = document.getElementById("postContent").value;
+              // Collect other details, e.g., from dropdowns or other input fields
+              const label = document.querySelector('.label-dropdown').value;
+              const preference = document.querySelector('.preference-dropdown').value;
+              // Example for getting user_info, label, etc.
+    
+              const postDetails = {
+                  post: postContent,
+                  label: label,
+                  preference: preference,
+                  // Add other fields as required
+                  comment: '', // Set default or collect from UI
+                  user_info: 'currentUserId' // You'll likely need to get this from your authentication context
+              };
+    
+              const newPost = await createPost(postDetails);
+              console.log("New post created:", newPost);
+    
+              document.getElementById("postContent").value = '';
+          } catch (error) {
+              console.error("Error creating post:", error);
+          }
+      });
+    </script>
+    
+  </body>
+</html>

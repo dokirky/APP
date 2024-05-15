@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LearnIT</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.c5a00942.ico" />
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFt7CiAgICAic3JjIjogImFzc2V0cy9pbWdzL2xvZ28ucG5nIiwKICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICJ0eXBlIjogImltYWdlL3BuZyIKICB9XSwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMzFkNTNkIiwKICAidGhlbWVfY29sb3IiOiAiIzMxZDUzZCIKfQo=" />
+    
+    <meta name="theme-color" content="#31d53d" />
+    <script type="module" src="./js/auth/home.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+   
+      <nav class="fixed-top navbar navbar-expand-lg bg-light navigatu">
+        <div class="container-fluid">
+          <div class="col-lg-3 col-md-3">
+            <a class="navbar-brand branding" href="home.html"><img src="/assets/imgs/icooon.b1acba16.png" class="logos" alt="">LearnIT</a>
+          </div>
+          <div class="col-lg-6 col-md-0">
+            <button class="btn navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="offcanvas offcanvas-end canvaoff" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="justify-content-end d-flex ins">
+              <ul class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-sm-end justify-content-md-end">
+                <li class="nav-item col-lg-2 ">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item col-lg-2 d-none d-lg-block d-xl-block">
+                  <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <a class="nav-link" href="siteadmin.html">Site Administrator</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <button type="button" id="btn_logout" class="btn btn-primary">Log-out</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="container-fluid stage d-lg-none">
+        <div class="container-fluid">
+          <div class="tabbars tab-style1 container-fluid">
+            <ul class="flexs-center">
+              <li class="chat-message active" data-where="group">
+                <a href="notification.html">
+                  <span class="material-icons-outlined bub">
+                    notifications
+                  </span>
+                </a>
+                </li>
+              <li class="home" data-where="home">
+                <a href="home.html">
+                  <span class="material-icons-outlined bub">
+                    home
+                </span>
+                </a>
+                </li>
+              <li class="user-profile" data-where="person bub">
+                <a href="profile.html">
+                  <span class="material-icons-outlined">
+                    account_circle
+                  </span>
+                </a>
+                </li>
+            </ul>
+          </div>
+          <div class="container-fluid under-icon">
+            <ul class="flexsi-center">
+              <li>Notification</li>
+              <li>Home</li>
+              <li>Profile</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+    
+<main>
+  <div class="mb-5">
+    <div class="insidebarabi pt-4" style="margin-top: 60px;">
+      <h4>Notifications</h4>
+    </div>
+    <div class="insidebarabi pt-2 mt-2 mb-5">
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Glomer Celestino commented to your post.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="post.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+  
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Melvin Jipos wrote a post.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="post.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+  
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Glomer Celestino followed you.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="otherprofile.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Glomer Celestino commented to your post.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="post.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+  
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Melvin Jipos wrote a post.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="post.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+  
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Glomer Celestino followed you.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="otherprofile.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+    
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Glomer Celestino commented to your post.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="post.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+  
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Melvin Jipos wrote a post.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="post.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+  
+      <div class="d-flex insidebarabi">
+        <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto sizelogo">
+        <div class="col-7 col-lg-9 mt-1">
+          <span>Glomer Celestino followed you.</span>
+        </div>
+        <div class="mt-1 mx-5"> 
+          <a href="otherprofile.html">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              View
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+    
+    <div class="footerstyle d-none d-lg-block d-xl-block ">
+      <h4 class="branding">LearnIT</h4>
+      <small>© Copyright 2024</small>
+    </div>
+    <script type="module">
+      import { createPost } from './js/auth/post.js';
+    
+      document.getElementById("postButton").addEventListener("click", async (event) => {
+          event.preventDefault(); // Stops the page from refreshing
+    
+          try {
+              const postContent = document.getElementById("postContent").value;
+              // Collect other details, e.g., from dropdowns or other input fields
+              const label = document.querySelector('.label-dropdown').value;
+              const preference = document.querySelector('.preference-dropdown').value;
+              // Example for getting user_info, label, etc.
+    
+              const postDetails = {
+                  post: postContent,
+                  label: label,
+                  preference: preference,
+                  // Add other fields as required
+                  comment: '', // Set default or collect from UI
+                  user_info: 'currentUserId' // You'll likely need to get this from your authentication context
+              };
+    
+              const newPost = await createPost(postDetails);
+              console.log("New post created:", newPost);
+    
+              document.getElementById("postContent").value = '';
+          } catch (error) {
+              console.error("Error creating post:", error);
+          }
+      });
+    </script>
+    
+  </body>
+</html>
