@@ -112,17 +112,17 @@
             <div class="mt-4 pb-2">
               <div class="container barabi">
                 <div class="container insidecontent">
-                  <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="logophoto">
+                  <img src="/assets/imgs/icooon.b1acba16.png" alt="" class="homepagephoto">
                   <h2>Glomer P. Celestino</h2>
                   <h4>Hello everyone! I am new here!</h4>
                   <div class="d-flex">
-                    <h4 class="col-3">Followers</h4>
+                    <h4 class="col-3">Posts</h4>
                     <div class="col-2"></div>
                     <h5 class="col-6">100</h5>
                   </div>
                   <div class="d-flex">
-                    <h4 class="col-3">Following</h4>
-                    <div class="col-2"></div>
+                    <h4 class="col-4">Post clicks</h4>
+                    <div class="col-1"></div>
                     <h5 class="col-6">12</h5>
                   </div>
 
@@ -172,40 +172,34 @@
           </div>
           
 
-          <div  class="container col-lg-6">
-          <div class="container col-lg-5">
+          <div  class="container col-lg-6 col-sm-12">
+          <div class="container col-10">
             <div class="main-content mt-4 pb-2">
               <form id="post_form" class="create-post">
                 <div class="create-post-input">
                   <img src="/assets/imgs/icooon.b1acba16.png" alt="">
                   <textarea id="post" name="post" rows="2" placeholder="Write a post..."></textarea>
                 </div>
-              
-                  
-                   
-                    <select
-                      class="form-select form-select sm mt-1"
-                      aria-label=".form-select-sm example"
-                      id="label"
-                      name="label"
-                    >
+                
+                  <select class="form-select form-select-sm mt-1" aria-label=".form-select-sm example" id="label" name="label">
                     <option disabled selected value="">Label</option>
-                      <option value="other option">Urgent</option>
-                    
-                    </select>
+                    <option value="Urgent">Urgent</option>
+                    <option value="Important">Important</option>
+                    <option value="Urgent and Important">Urgent and Important</option>
+                </select>
 
-                    <select
-                    class="form-select form-select sm mt-1"
-                    aria-label=".form-select-sm example"
-                    id="preferences"
-                    name="preferences"
+                  <select
+                  class="form-select form-select-sm mt-1"
+                  aria-label=".form-select-sm example"
+                  id="preferences"
+                  name="preferences"
                   >
                   <option disabled selected value="">Preferences</option>
-                    <option value="Homework">Homework</option>
-                    <option value="Programming">Programming</option>
-                    <option value="Project">Project</option>
-                   
-                  </select>
+                  <option value="Homework">Homework</option>
+                  <option value="Tutoring">Tutoring</option>
+                  <option value="Project">Project</option>
+                 
+                </select>
 
                   <div class="d-grid gap-2 mt-1">
                     <button id="post_btn" class="btn btn-primary" type="submit">Post</button>

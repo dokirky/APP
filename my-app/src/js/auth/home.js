@@ -3,10 +3,42 @@ import { doLogout, supabase } from "../main";
 
 const form_item = document.getElementById("post_form");
 const itemsImageUrl =
-  "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
+"https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
+
 const userId = localStorage.getItem("user_id");
 
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+
+  return `${year}-${month}-${day}|${hours}:${minutes}:${seconds}`;
+}
+
+async function addTimestamp() {
+  // Get the current date and time
+  const date = new Date();
+  
+  // Format the date
+  const formattedDate = formatDate(date);
+
+  // Insert into Supabase
+  const { data, error } = await supabase
+    .from('posts')
+    .insert([{ created_at: formattedDate }]);
+
+  if (error) {
+    console.error('Error inserting data:', error);
+  } else {
+    console.log('Data inserted:', data);
+  }
+}
+
 console.log(userId);
+
 // Event listener for logging out
 document.body.addEventListener("click", function (event) {
   if (event.target.id === "btn_logout") {
@@ -34,19 +66,18 @@ document.body.addEventListener("click", function (event) {
 
 getDatas();
 async function getDatas() {
-    let { data: posts, error } = await supabase
-      .from("posts")
-      .select("*,user_infos(*)");
-  
-    let container = "";
-  
-    posts.forEach((data) => {
-        const firstname = data.user_infos?.first_name || "Unknown";
-        const lastname = data.user_infos?.last_name || "Unknown";
-        const imageUser = data.user_infos?.image_path || "default_image_path.jpg";
-  
-      container += `
-         
+  let { data: posts, error } = await supabase
+    .from("posts")
+    .select("*,user_infos(*)");
+
+  let container = "";
+
+  posts.forEach((data) => {
+    const firstname = data.user_infos?.first_name || "Unknown";
+    const lastname = data.user_infos?.last_name || "Unknown";
+    const imageUser = data.user_infos?.image_path || "default_image_path.jpg";
+
+    container += `
           <div class="container-fluid insidebarabi secondrow posting p-2">
             <div class="post-author">
               <a href="otherprofile.html">
@@ -75,51 +106,36 @@ async function getDatas() {
               </div>
               <div class="col-3"></div>
               <div class="col-6 text-end">
-                
-                  <button id="btn_interact" class="btn btn-primary" type="button"  aria-controls="offcanvasExample">
-                    Interact
-                  </button>
-               
+                <button id="btn_interact" class="btn btn-primary" type="button" aria-controls="offcanvasExample">
+                  Interact
+                </button>
               </div>
             </div>
           </div>
-  
-        
-       
-          `;
-    });
-  
-    document.getElementById("post_container").innerHTML = container;
-  }
-  
+      `;
+  });
 
-//button catcher para maka add ug javaScript sa button
+  document.getElementById("post_container").innerHTML = container;
+}
+
+// Event listener for "Interact" button
 document.body.addEventListener("click", function (event) {
   if (event.target.id === "btn_interact") {
     alert("Interact to post... but its under construction");
   }
 });
-// document.body.addEventListener("click", function (event) {
-//     if (event.target.id === "post_btn") {
-//      alert("Interact to post... but its under construction");
-//     }
-//   });
 
 let for_update_id = "";
 form_item.onsubmit = async (e) => {
   e.preventDefault();
   document.querySelector("#post_form button[type='submit']").disabled = true;
-  document.querySelector("#post_form button[type='submit']").innerHTML = `
-                      <span>Loading...</span>`;
+  document.querySelector("#post_form button[type='submit']").innerHTML = `<span>Loading...</span>`;
 
   const formData = new FormData(form_item);
   let image_path = formData.get("image_path");
   let image_data = null;
-  if (!image_path) {
-    // Retrieve the last saved image path
-    // Assuming you have a variable holding the last saved image path
-    // Replace 'last_saved_image_path' with the variable holding the last saved image path
-  } else {
+  
+  if (image_path) {
     // Supabase Image Upload
     const image = formData.get("image_path");
     const { data, error } = await supabase.storage
@@ -130,13 +146,14 @@ form_item.onsubmit = async (e) => {
       });
     image_data = data;
     if (error) {
-      alert(
-        "Something wrong happened. Cannot upload image, image size might be too big. You may update the item's image."
-      );
+      alert("Something wrong happened. Cannot upload image, image size might be too big. You may update the item's image.");
       console.log(error);
     }
   }
+
   if (for_update_id == "") {
+    const formattedDate = formatDate(new Date()); // Get the current date and format it
+
     const { data, error } = await supabase
       .from("posts")
       .insert([
@@ -145,6 +162,7 @@ form_item.onsubmit = async (e) => {
           user_infos_id: userId,
           post: formData.get("post"),
           preferences: formData.get("preferences"),
+          created_at: formattedDate, // Insert the formatted timestamp
         },
       ])
       .select();
@@ -153,8 +171,8 @@ form_item.onsubmit = async (e) => {
       alert("Something wrong happened. Cannot add item.");
       console.log(error);
     } else {
-      alert("post Successfully Added!");
-      // Reload Datas
+      alert("Post Successfully Added!");
+      // Reload data
       getDatas();
       window.location.reload();
     }
@@ -163,27 +181,25 @@ form_item.onsubmit = async (e) => {
       .from("profiles")
       .update({
         label: formData.get("label"),
+        preferences: formData.get("preferences"),
         image_path: image_data ? image_data.path : image_path,
       })
       .eq("id", for_update_id)
       .select();
 
-    if (error == null) {
-      alert("post Successfully Added!");
-
+    if (!error) {
+      alert("Post Successfully Updated!");
       // Reset storage id
       for_update_id = "";
-      /* reload datas */
+      // Reload data
       getDatas();
     } else {
-      alert("Something wrong happened. Cannot add item.");
+      alert("Something wrong happened. Cannot update item.");
       console.log(error);
     }
   }
 
   form_item.reset();
   document.querySelector("#post_form button[type='submit']").disabled = false;
-  document.querySelector(
-    "#post_form button[type='submit']"
-  ).innerHTML = `Submit`;
+  document.querySelector("#post_form button[type='submit']").innerHTML = `Submit`;
 };
