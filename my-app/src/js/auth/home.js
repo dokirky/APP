@@ -203,3 +203,43 @@ form_item.onsubmit = async (e) => {
   document.querySelector("#post_form button[type='submit']").disabled = false;
   document.querySelector("#post_form button[type='submit']").innerHTML = `Submit`;
 };
+
+
+
+
+// Function to get user details
+async function getDetails() {
+  const baseURL = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
+  try {
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    if (userError) {
+      throw new Error("Failed to fetch user data: " + userError.message);
+    }
+
+    const { data, error } = await supabase
+      .from("user_infos")
+      .select("*")
+      .eq("user_id", user.id);
+
+    if (error) {
+      throw new Error("Failed to fetch user data: " + error.message);
+    }
+
+    if (!data || data.length === 0) {
+      console.error("No data found for user");
+      return;
+    }
+
+    console.log("User path:", baseURL + data[0].image_path);
+
+    const profilePicinamo = document.getElementById("myProfilefuck");
+    profilePicinamo.src = baseURL + data[0].image_path;
+
+
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+getDetails();
+
