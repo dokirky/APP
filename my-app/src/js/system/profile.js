@@ -189,87 +189,7 @@ async function displayComments(postId) {
     .join("");
 }
 
-let for_update_id = "";
-form_item.onsubmit = async (e) => {
-  e.preventDefault();
-  document.querySelector("#post_form button[type='submit']").disabled = true;
-  document.querySelector("#post_form button[type='submit']").innerHTML = `<span>Loading...</span>`;
-
-  const formData = new FormData(form_item);
-  let image_path = formData.get("image_path");
-  let image_data = null;
-  
-  if (image_path) {
-    // Supabase Image Upload
-    const image = formData.get("image_path");
-    const { data, error } = await supabase.storage
-      .from("profilePic")
-      .upload("public/" + image.name, image, {
-        cacheControl: "3600",
-        upsert: true,
-      });
-    image_data = data;
-    if (error) {
-      alert("Something wrong happened. Cannot upload image, image size might be too big. You may update the item's image.");
-      console.log(error);
-    }
-  }
-
-  if (for_update_id == "") {
-    const formattedDate = formatDate(new Date()); // Get the current date and format it
-
-    const { data, error } = await supabase
-      .from("posts")
-      .insert([
-        {
-          label: formData.get("label"),
-          user_infos_id: userId,
-          post: formData.get("post"),
-          preferences: formData.get("preferences"),
-          created_at: formattedDate, // Insert the formatted timestamp
-        },
-      ])
-      .select();
-
-    if (error) {
-      alert("Something wrong happened. Cannot add item.");
-      console.log(error);
-    } else {
-      alert("Post Successfully Added!");
-      // Reload data
-      getDatas();
-      window.location.reload();
-    }
-  } else {
-    const { data, error } = await supabase
-      .from("profiles")
-      .update({
-        label: formData.get("label"),
-        preferences: formData.get("preferences"),
-        image_path: image_data ? image_data.path : image_path,
-      })
-      .eq("id", for_update_id)
-      .select();
-
-    if (!error) {
-      alert("Post Successfully Updated!");
-      // Reset storage id
-      for_update_id = "";
-      // Reload data
-      getDatas();
-    } else {
-      alert("Something wrong happened. Cannot update item.");
-      console.log(error);
-    }
-  }
-
-  form_item.reset();
-  document.querySelector("#post_form button[type='submit']").disabled = false;
-  document.querySelector("#post_form button[type='submit']").innerHTML = `Submit`;
-};
-
-// Function to get user details
-async function getDetails() {
+async function getUserInfo() {
   const baseURL = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
   try {
     const { data: { user }, error: userError } = await supabase.auth.getUser();
@@ -278,9 +198,9 @@ async function getDetails() {
     }
 
     const { data, error } = await supabase
-      .from("user_infos")
-      .select("*")
-      .eq("user_id", user.id);
+      .from('user_infos')
+      .select('first_name, last_name, birthdate, contact, bio, about, image_path')
+      .eq('user_id', user.id);
 
     if (error) {
       throw new Error("Failed to fetch user data: " + error.message);
@@ -291,60 +211,37 @@ async function getDetails() {
       return;
     }
 
-    const userData = data[0];
+    console.log("User First Name:", data[0].first_name);
+    console.log("User Last Name:", data[0].last_name);
+    console.log("User Birthdate:", data[0].birthdate);
+    console.log("User Contact:", data[0].contact);
+    console.log("User Bio:", data[0].bio);
+    console.log("User About:", data[0].about);
+    console.log("User path:", baseURL + data[0].image_path);
 
-    document.getElementById("myProfilefuck").src = baseURL + userData.image_path;
-    document.getElementById("first_name").textContent = userData.first_name + " ";
-    document.getElementById("last_name").textContent = userData.last_name;
-    document.getElementById("birth_date").textContent = userData.birthdate;
-    document.getElementById("bio").textContent = userData.bio;
-    document.getElementById("contact").textContent = userData.contact;
-    document.getElementById("about").textContent = userData.about;
+    const profilePic = document.getElementById("myProfile");
+    profilePic.src = baseURL + data[0].image_path;
 
-    await getUserPosts(user.id);
+    const displayFirstName = document.getElementById("first_name");
+    displayFirstName.textContent = data[0].first_name + " ";
 
-  } catch (error) {
-    console.error("Error:", error.message);
-  }
-}
+    const displayLastName = document.getElementById("last_name");
+    displayLastName.textContent = data[0].last_name;
 
-// Function to get user's posts
-async function getUserPosts(userId) {
-  try {
-    const { data: posts, error } = await supabase
-      .from("posts")
-      .select("*")
-      .eq("user_infos_id", userId);
+    const displayBirthdate = document.getElementById("birth_date");
+    displayBirthdate.textContent = data[0].birthdate;
 
-    if (error) {
-      throw new Error("Failed to fetch user posts: " + error.message);
-    }
+    const displayBio = document.getElementById("bio");
+    displayBio.textContent = data[0].bio;
 
-    if (!posts || posts.length === 0) {
-      console.error("No posts found for user");
-      return;
-    }
+    const displayContact = document.getElementById("contact");
+    displayContact.textContent = data[0].contact;
 
-    const postContainer = document.getElementById("post_container");
-    postContainer.innerHTML = "";
-
-    posts.forEach(post => {
-      const postElement = document.createElement("div");
-      postElement.classList.add("post");
-
-      postElement.innerHTML = `
-        <h2>${post.label}</h2>
-        <p>${post.post}</p>
-        <p><strong>Preferences:</strong> ${post.preferences}</p>
-        <p><small>${new Date(post.created_at).toLocaleString()}</small></p>
-      `;
-
-      postContainer.appendChild(postElement);
-    });
+    const displayAbout = document.getElementById("about");
+    displayAbout.textContent = data[0].about;
 
   } catch (error) {
     console.error("Error:", error.message);
   }
 }
-
-getDetails();
+getUserInfo();
