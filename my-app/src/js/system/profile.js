@@ -1,6 +1,4 @@
-// Import necessary functions
 import { doLogout, supabase } from "../main";
-
 
 const form_item = document.getElementById("post_form");
 const itemsImageUrl = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
@@ -19,34 +17,19 @@ function formatDate(date) {
 
 console.log(userId);
 
-
-const form_item = document.getElementById("post_form");
-const itemsImageUrl =
-  "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
-const userId = localStorage.getItem("user_id");
-
-console.log(userId);
 // Event listener for logging out
 document.body.addEventListener("click", function (event) {
   if (event.target.id === "btn_logout") {
-
-    // Logic for logging out
-    // Disable the button and show loading spinner
     document.querySelector("#btn_logout").disabled = true;
-    document.querySelector(
-      "#btn_logout"
-    ).innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
+    document.querySelector("#btn_logout").innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
 
     doLogout()
       .then(() => {
-        // Re-enable the button and change the text
-
         document.querySelector("#btn_logout").disabled = false;
         document.querySelector("#btn_logout").innerHTML = "Log-in";
       })
       .catch((error) => {
         console.error("Logout failed:", error);
-
         document.querySelector("#btn_logout").disabled = false;
         document.querySelector("#btn_logout").innerHTML = "Log-in";
       });
@@ -55,10 +38,15 @@ document.body.addEventListener("click", function (event) {
 
 getDatas();
 async function getDatas() {
-
   let { data: posts, error } = await supabase
     .from("posts")
-    .select("*,user_infos(*)");
+    .select("*,user_infos(*)")
+    .eq("user_infos_id", userId); // Fetch only the posts created by the logged-in user
+
+  if (error) {
+    console.error("Error fetching posts:", error);
+    return;
+  }
 
   let container = "";
 
@@ -122,8 +110,6 @@ document.body.addEventListener("click", function (event) {
   }
 });
 
-
-
 // Event listener for "Hide Comments" button
 document.body.addEventListener("click", function (event) {
   if (event.target.id === "btn_hide_comments") {
@@ -139,17 +125,8 @@ document.body.addEventListener("click", function (event) {
     } else {
       btnHideComments.innerHTML = "Hide Comments &#9650;";
     }
-
   }
 });
-// document.body.addEventListener("click", function (event) {
-//     if (event.target.id === "post_btn") {
-//      alert("Interact to post... but its under construction");
-//     }
-//   });
-
-
-
 
 // Event listener for submitting comments
 document.body.addEventListener("submit", async function (event) {
@@ -241,7 +218,6 @@ form_item.onsubmit = async (e) => {
   if (for_update_id == "") {
     const formattedDate = formatDate(new Date()); // Get the current date and format it
 
-
     const { data, error } = await supabase
       .from("posts")
       .insert([
@@ -250,9 +226,7 @@ form_item.onsubmit = async (e) => {
           user_infos_id: userId,
           post: formData.get("post"),
           preferences: formData.get("preferences"),
-
           created_at: formattedDate, // Insert the formatted timestamp
-
         },
       ])
       .select();
@@ -261,10 +235,8 @@ form_item.onsubmit = async (e) => {
       alert("Something wrong happened. Cannot add item.");
       console.log(error);
     } else {
-
-      alert("post Successfully Added!");
-      // Reload Datas
-
+      alert("Post Successfully Added!");
+      // Reload data
       getDatas();
       window.location.reload();
     }
@@ -273,14 +245,11 @@ form_item.onsubmit = async (e) => {
       .from("profiles")
       .update({
         label: formData.get("label"),
-
         preferences: formData.get("preferences"),
-
         image_path: image_data ? image_data.path : image_path,
       })
       .eq("id", for_update_id)
       .select();
-
 
     if (!error) {
       alert("Post Successfully Updated!");
@@ -290,14 +259,12 @@ form_item.onsubmit = async (e) => {
       getDatas();
     } else {
       alert("Something wrong happened. Cannot update item.");
-
       console.log(error);
     }
   }
 
   form_item.reset();
   document.querySelector("#post_form button[type='submit']").disabled = false;
-
   document.querySelector("#post_form button[type='submit']").innerHTML = `Submit`;
 };
 
@@ -305,45 +272,79 @@ form_item.onsubmit = async (e) => {
 async function getDetails() {
   const baseURL = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
   try {
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    if (userError) {
+      throw new Error("Failed to fetch user data: " + userError.message);
+    }
+
     const { data, error } = await supabase
       .from("user_infos")
       .select("*")
-      .eq("user_id", userId);
+      .eq("user_id", user.id);
 
     if (error) {
-      throw new Error(error.message);
+      throw new Error("Failed to fetch user data: " + error.message);
     }
 
-    const profile = data[0];
-    if (!profile) {
-      throw new Error("User profile not found");
+    if (!data || data.length === 0) {
+      console.error("No data found for user");
+      return;
     }
 
-    const elementsToUpdate = [
-      { selector: "#full_name", text: `${profile.first_name} ${profile.last_name}` },
-      { selector: "#birthdate", text: profile.birthdate },
-      { selector: "#about", text: profile.about },
-      { selector: "#contact", text: profile.contact },
-      { selector: "#bio", text: profile.bio },
-      { selector: "#role", text: profile.role },
-      { selector: "#profile_image", attribute: "src", value: baseURL + profile.image_path },
-    ];
+    const userData = data[0];
 
-    elementsToUpdate.forEach(({ selector, text, attribute, value }) => {
-      const element = document.querySelector(selector);
-      if (element) {
-        if (attribute) {
-          element.setAttribute(attribute, value);
-        } else {
-          element.textContent = text;
-        }
-      }
-    });
+    document.getElementById("myProfilefuck").src = baseURL + userData.image_path;
+    document.getElementById("first_name").textContent = userData.first_name + " ";
+    document.getElementById("last_name").textContent = userData.last_name;
+    document.getElementById("birth_date").textContent = userData.birthdate;
+    document.getElementById("bio").textContent = userData.bio;
+    document.getElementById("contact").textContent = userData.contact;
+    document.getElementById("about").textContent = userData.about;
+
+    await getUserPosts(user.id);
+
   } catch (error) {
-    console.error("Error fetching user details:", error.message);
-    // Handle error case
+    console.error("Error:", error.message);
+  }
+}
+
+// Function to get user's posts
+async function getUserPosts(userId) {
+  try {
+    const { data: posts, error } = await supabase
+      .from("posts")
+      .select("*")
+      .eq("user_infos_id", userId);
+
+    if (error) {
+      throw new Error("Failed to fetch user posts: " + error.message);
+    }
+
+    if (!posts || posts.length === 0) {
+      console.error("No posts found for user");
+      return;
+    }
+
+    const postContainer = document.getElementById("post_container");
+    postContainer.innerHTML = "";
+
+    posts.forEach(post => {
+      const postElement = document.createElement("div");
+      postElement.classList.add("post");
+
+      postElement.innerHTML = `
+        <h2>${post.label}</h2>
+        <p>${post.post}</p>
+        <p><strong>Preferences:</strong> ${post.preferences}</p>
+        <p><small>${new Date(post.created_at).toLocaleString()}</small></p>
+      `;
+
+      postContainer.appendChild(postElement);
+    });
+
+  } catch (error) {
+    console.error("Error:", error.message);
   }
 }
 
 getDetails();
-
