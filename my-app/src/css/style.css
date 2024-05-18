@@ -1010,6 +1010,35 @@ footer h1{
 .email{
   width: 40%;
 }
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.btn-link {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.post-id-container {
+  display: flex;
+  align-items: center;
+}
+
+.comment-section .btn {
+  margin-right: 0.5rem;
+}
+
 input.editnow{
   border: 1px solid gray;
 }
