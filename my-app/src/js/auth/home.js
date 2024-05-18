@@ -1,6 +1,7 @@
 // Import necessary functions
 import { doLogout, supabase } from "../main";
 
+
 const form_item = document.getElementById("post_form");
 const itemsImageUrl = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
 
@@ -18,19 +19,34 @@ function formatDate(date) {
 
 console.log(userId);
 
+
+const form_item = document.getElementById("post_form");
+const itemsImageUrl =
+  "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
+const userId = localStorage.getItem("user_id");
+
+console.log(userId);
 // Event listener for logging out
 document.body.addEventListener("click", function (event) {
   if (event.target.id === "btn_logout") {
+
+    // Logic for logging out
+    // Disable the button and show loading spinner
     document.querySelector("#btn_logout").disabled = true;
-    document.querySelector("#btn_logout").innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
+    document.querySelector(
+      "#btn_logout"
+    ).innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
 
     doLogout()
       .then(() => {
+        // Re-enable the button and change the text
+
         document.querySelector("#btn_logout").disabled = false;
         document.querySelector("#btn_logout").innerHTML = "Log-in";
       })
       .catch((error) => {
         console.error("Logout failed:", error);
+
         document.querySelector("#btn_logout").disabled = false;
         document.querySelector("#btn_logout").innerHTML = "Log-in";
       });
@@ -39,6 +55,7 @@ document.body.addEventListener("click", function (event) {
 
 getDatas();
 async function getDatas() {
+
   let { data: posts, error } = await supabase
     .from("posts")
     .select("*,user_infos(*)");
@@ -122,8 +139,15 @@ document.body.addEventListener("click", function (event) {
     } else {
       btnHideComments.innerHTML = "Hide Comments &#9650;";
     }
+
   }
 });
+// document.body.addEventListener("click", function (event) {
+//     if (event.target.id === "post_btn") {
+//      alert("Interact to post... but its under construction");
+//     }
+//   });
+
 
 
 
@@ -217,6 +241,7 @@ form_item.onsubmit = async (e) => {
   if (for_update_id == "") {
     const formattedDate = formatDate(new Date()); // Get the current date and format it
 
+
     const { data, error } = await supabase
       .from("posts")
       .insert([
@@ -225,7 +250,9 @@ form_item.onsubmit = async (e) => {
           user_infos_id: userId,
           post: formData.get("post"),
           preferences: formData.get("preferences"),
+
           created_at: formattedDate, // Insert the formatted timestamp
+
         },
       ])
       .select();
@@ -234,8 +261,10 @@ form_item.onsubmit = async (e) => {
       alert("Something wrong happened. Cannot add item.");
       console.log(error);
     } else {
-      alert("Post Successfully Added!");
-      // Reload data
+
+      alert("post Successfully Added!");
+      // Reload Datas
+
       getDatas();
       window.location.reload();
     }
@@ -244,11 +273,14 @@ form_item.onsubmit = async (e) => {
       .from("profiles")
       .update({
         label: formData.get("label"),
+
         preferences: formData.get("preferences"),
+
         image_path: image_data ? image_data.path : image_path,
       })
       .eq("id", for_update_id)
       .select();
+
 
     if (!error) {
       alert("Post Successfully Updated!");
@@ -258,12 +290,14 @@ form_item.onsubmit = async (e) => {
       getDatas();
     } else {
       alert("Something wrong happened. Cannot update item.");
+
       console.log(error);
     }
   }
 
   form_item.reset();
   document.querySelector("#post_form button[type='submit']").disabled = false;
+
   document.querySelector("#post_form button[type='submit']").innerHTML = `Submit`;
 };
 
@@ -315,6 +349,7 @@ getDetails();
 
 
 
+
 async function getUsersInfo() {
   const baseURL = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
   try {
@@ -348,3 +383,4 @@ async function getUsersInfo() {
   }
 }
 getUsersInfo();
+
