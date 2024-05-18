@@ -3,6 +3,7 @@ import { doLogout, supabase } from "../main";
 
 
 const form_item = document.getElementById("post_form");
+const change_comment = document.getElementById('change_comment');
 const itemsImageUrl = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
 
 const userId = localStorage.getItem("user_id");
@@ -18,12 +19,6 @@ function formatDate(date) {
 }
 
 console.log(userId);
-
-
-const form_item = document.getElementById("post_form");
-const itemsImageUrl =
-  "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
-const userId = localStorage.getItem("user_id");
 
 console.log(userId);
 // Event listener for logging out
@@ -62,7 +57,7 @@ async function getDatas() {
 
   let container = "";
 
-  posts.forEach((data) => {
+  posts.forEach((data, index) => {
     const firstname = data.user_infos?.first_name || "Unknown";
     const lastname = data.user_infos?.last_name || "Unknown";
     const imageUser = data.user_infos?.image_path || "default_image_path.jpg";
@@ -99,19 +94,24 @@ async function getDatas() {
           </div>
         </div>
         <div class="comment-section mt-3 p-3" data-post-id="${data.id}">
-          <form class="comment-form d-none" data-post-id="${data.id}">
-            <textarea class="form-control" placeholder="Write a comment..." rows="3"></textarea>
-            <button type="submit" class="btn btn-secondary mt-2">Submit</button>
-          </form>
+        <form class="comment-form d-none" data-post-id="${data.id}">
+        <textarea class="form-control" placeholder="Write a comment..." rows="3"></textarea>
+        <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+      </form>
           <div class="comments-list mt-3" data-post-id="${data.id}"></div>
         </div>
       </div>
+
+
+ 
     `;
   });
 
   document.getElementById("post_container").innerHTML = container;
   posts.forEach(post => displayComments(post.id));
 }
+
+
 
 // Event listener for "Comment" button
 document.body.addEventListener("click", function (event) {
@@ -182,6 +182,7 @@ document.body.addEventListener("submit", async function (event) {
   }
 });
 
+let update_comments = "";
 async function displayComments(postId) {
   const { data: comments, error } = await supabase
     .from("comments")
@@ -194,6 +195,7 @@ async function displayComments(postId) {
   }
 
   const commentsList = document.querySelector(`.comments-list[data-post-id="${postId}"]`);
+
   commentsList.innerHTML = comments
     .map(
       (comment) => `
@@ -206,11 +208,221 @@ async function displayComments(postId) {
           </div>
         </div>
         <p class="mb-1">${comment.comment}</p>
+        <button id="btn_edit_comment_${comment.id}"  data-bs-toggle="modal" data-bs-target="#modal_comments" type="button" class="btn btn-primary" data-id="${comment.id}">Edit</button>
+        <button id="btn_edit_delete_${comment.id}" type="button" class="btn btn-danger" data-id="${comment.id}">Delete</button>
       </div>
+
+     
+    
+    
     `
+    
     )
+
+    
     .join("");
-}
+   
+
+  
+  
+    commentsList.addEventListener('click', async function(event) {
+      const target = event.target;
+    
+      if (target.matches('[id^="btn_edit_comment_"]')) {
+        const commentId = target.dataset.id;
+        const { data: comment, error } = await supabase
+          .from("comments")
+          .select("*")
+          .eq("id", commentId)
+          .single();
+    
+        if (error) {
+          console.error('Error fetching comment data:', error);
+          return;
+        }
+    
+        if (!comment) {
+          console.error('No comment found for the specified ID.');
+          return;
+        }
+    
+        const userInfosId = comment.user_infos_id;
+        console.log('userInfosId:', userInfosId);
+        console.log('userId:', userId);
+    
+        if (userId == userInfosId) {
+          edit_comment_view(commentId);
+        } else {
+          alert('User ID does not match user_infos_id. Deletion not allowed.');
+        }
+      }
+      
+    
+    else if (target.matches('[id^="btn_edit_delete_"]')) {
+      const commentId = target.dataset.id;
+      console.log(commentId);
+      const postId = target.getAttribute("data-post-id");
+    
+      
+      try {
+        const { data: comment, error } = await supabase
+          .from("comments")
+          .select("*")
+          .eq("id", commentId)
+          .single();
+    
+        if (error) {
+          throw error;
+        }
+    
+        if (!comment) {
+          throw new Error('No comment found for the specified ID.');
+        }
+    
+        const userInfosId = comment.user_infos_id;
+        console.log(userInfosId);
+        console.log(userId);
+    
+       
+        if (userId == userInfosId) {
+         
+          deleteComment(commentId);
+        } else {
+          alert('User ID does not match user_infos_id. Deletion not allowed.');
+          
+        }
+      } catch (error) {
+        console.error('Error fetching comment data:', error);
+        
+      }
+    }
+    
+  });
+  
+}  
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "editing_comment") {
+    change_comments(event);
+  }
+});
+const edit_comment_view = async (commentId) => {
+  try {
+    const { data: comments, error } = await supabase
+      .from("comments")
+      .select("*")
+      .eq("id", commentId)
+      .single();
+
+    if (error) {
+      throw error;
+    }
+
+    if (!comments) {
+      throw new Error('No comment found for the specified ID.');
+    }
+
+    update_comments = comments.id;
+    document.getElementById("commentReady").value = comments.comment;
+
+   
+    
+  } catch (error) {
+    alert("Something wrong happened. Cannot show item.");
+    console.error('Error fetching comment data:', error);
+  }
+};
+const change_comments = async (e) => {
+  e.preventDefault();
+
+  const commentText = document.getElementById("commentReady").value;
+
+  console.log(commentText);
+
+  if (update_comments === "") {
+    try {
+      const { data, error } = await supabase
+        .from("comments")
+        .insert([
+          {
+            comment: commentText,
+          },
+        ])
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      alert("Comment Successfully Added!");
+      getDatas();
+    } catch (error) {
+      alert("Something wrong happened. Cannot add comment.");
+      console.error(error);
+    }
+  } else {
+    try {
+      console.log(update_comments);
+      const { data, error } = await supabase
+        .from("comments")
+        .update({
+          comment: commentText
+        })
+        .eq("id", update_comments)
+        .select();
+
+      if (error === null) {
+        alert("Comment Successfully Updated!");
+        // Reset storage id
+        update_comments = "";
+        /* reload datas */
+        getDatas();
+      } else {
+        alert("Something wrong happened. Cannot update comment.");
+        console.error(error);
+      }
+    } catch (error) {
+      alert("Something wrong happened. Cannot update comment.");
+      console.error(error);
+    }
+  }
+};
+
+
+
+
+
+
+
+// Attach submit event listener to the form
+
+
+const deleteComment = async (commentId) => {
+  const isConfirmed = window.confirm(
+    "Are you sure you want to delete this comment?"
+  );
+
+  if (!isConfirmed) {
+    return;
+  }
+
+  try {
+    const { error } = await supabase.from("comments").delete().eq("id", commentId);
+
+    if (error) {
+      throw error;
+    }
+
+    alert("Comment deleted successfully.");
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
+  } catch (error) {
+    console.error("Error deleting comment:", error.message);
+    alert("Something wrong happened. Cannot delete comment.");
+  }
+};
+
 
 let for_update_id = "";
 form_item.onsubmit = async (e) => {
@@ -308,7 +520,7 @@ async function getDetails() {
     const { data, error } = await supabase
       .from("user_infos")
       .select("*")
-      .eq("user_id", userId);
+      .eq("id", userId);
 
     if (error) {
       throw new Error(error.message);
@@ -361,7 +573,7 @@ async function getUsersInfo() {
     const { data, error } = await supabase
       .from('user_infos')
       .select('image_path')
-      .eq('user_id', user.id);
+      .eq('id', userId);
 
     if (error) {
       throw new Error("Failed to fetch user data: " + error.message);
@@ -383,4 +595,11 @@ async function getUsersInfo() {
   }
 }
 getUsersInfo();
+
+
+
+
+
+
+
 
