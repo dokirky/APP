@@ -312,3 +312,39 @@ async function getDetails() {
 }
 
 getDetails();
+
+
+
+async function getUsersInfo() {
+  const baseURL = "https://xhfezetmnqhvulnqwles.supabase.co/storage/v1/object/public/profilePic/";
+  try {
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    if (userError) {
+      throw new Error("Failed to fetch user data: " + userError.message);
+    }
+
+    const { data, error } = await supabase
+      .from('user_infos')
+      .select('image_path')
+      .eq('user_id', user.id);
+
+    if (error) {
+      throw new Error("Failed to fetch user data: " + error.message);
+    }
+
+    if (!data || data.length === 0) {
+      console.error("No data found for user");
+      return;
+    }
+
+    console.log("User path:", baseURL + data[0].image_path);
+
+    const profilePic = document.getElementById("myProfilefucks");
+    profilePic.src = baseURL + data[0].image_path;
+
+
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+getUsersInfo();
